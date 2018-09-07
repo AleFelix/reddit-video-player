@@ -22,6 +22,10 @@ body {
 	max-height: 90vh;
 	max-width: 90vw;
 }
+.video-js.vjs-fullscreen {
+	max-height: none !important;
+	max-width: none !important;
+}
 .video-js {
 	<!-- background-color: transparent; -->
 }
