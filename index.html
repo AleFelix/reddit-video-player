@@ -2,13 +2,17 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Video Player for v.redd.it</title>
 	<link rel="stylesheet" type="text/css" href="videojs/video-js.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<div class="loader">Loading...</div>
 	<div class="video-container">
-		<video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" controls data-setup="{}">
+		<video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" controls data-setup='{"controlBar": {
+        "volumePanel": {"inline": false}
+    }}'>
 		<p class="vjs-no-js">
 			To view this video please enable JavaScript, and consider upgrading to a web browser that
 			<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
