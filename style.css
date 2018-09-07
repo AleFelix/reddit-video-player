@@ -32,7 +32,7 @@ body {
 form, input, label {
 	display: block;
 	margin: 10px auto;
-	width: 30vw;
+	width: 50vw;
 }
 button {
 	display: inline-block;
