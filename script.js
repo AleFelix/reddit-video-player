@@ -41,6 +41,14 @@ videoPlayer.onvolumechange = function() {
 	audioPlayer.volume = videoPlayer.volume;
 };
 
+let checkAndFixUrl = function(url) {
+	let posReddit = url.indexOf("r/");
+	if (posReddit !== -1) {
+		let urlPath = url.substring(posReddit, url.length);
+		return "https://www.reddit.com/" + urlPath;
+	}
+};
+
 let searchParams = new URLSearchParams(window.location.search);
 
 let videoContainer = document.getElementsByClassName("video-container")[0];
@@ -49,11 +57,17 @@ let loader = document.getElementsByClassName("loader")[0];
 if (searchParams.has("v") && searchParams.get("v")) {
 	let urlVideo = searchParams.get("v");
 	let request = new XMLHttpRequest();
+	urlVideo = checkAndFixUrl(urlVideo);
 	request.open("GET", urlVideo + "/.json", true);
 	request.onload = function() {
 		loader.style.display = "none";
 		videoContainer.style.display = "block";
-		let data = JSON.parse(request.responseText);
+		try {
+			var data = JSON.parse(request.responseText);
+		} catch (error) {
+			videoContainer.innerHTML = "<h1>Error</h1><h2>Video request failed</h2>";
+			return;
+		}
 		if (request.status >= 200 && request.status < 400) {
 			try {
 				document.title = data[0].data.children[0].data.title;
