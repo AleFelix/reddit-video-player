@@ -39,6 +39,9 @@ videoPlayer.onplaying = function() {
 
 videoPlayer.onvolumechange = function() {
 	audioPlayer.volume = videoPlayer.volume;
+	if (videoPlayer.muted) {
+		audioPlayer.volume = 0;
+	}
 };
 
 let checkAndFixUrl = function(url) {
