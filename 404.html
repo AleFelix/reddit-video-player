@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Redirecting...</title>
+	<style>
+		body {
+			background: #1d2025;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		let protocol = window.location.protocol;
+		let host = window.location.host;
+		let currentUrl = window.location.href;
+		let posReddit = currentUrl.indexOf("r/");
+		if (posReddit !== -1) {
+			let redditPath = currentUrl.substring(posReddit, currentUrl.length);
+			window.location.replace(protocol + "//" + host + "?v=" + redditPath);
+		} else {
+			window.location.replace(protocol + "//" + host);
+		}
+	</script>
+</body>
+</html>
