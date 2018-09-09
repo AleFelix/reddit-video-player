@@ -44,6 +44,12 @@ videoPlayer.onvolumechange = function() {
 	}
 };
 
+videoPlayer.ontimeupdate = function() {
+	if (Math.abs(videoPlayer.currentTime - audioPlayer.currentTime) > 0.25) {
+		audioPlayer.currentTime = videoPlayer.currentTime;
+	}
+};
+
 let checkAndFixUrl = function(url) {
 	let posReddit = url.indexOf("r/");
 	if (posReddit !== -1) {
