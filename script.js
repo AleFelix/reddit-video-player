@@ -44,7 +44,7 @@ let setCustomPlayerEvents = function() {
 			audioPlayer.volume = 0;
 		}
 	};
-
+  
 	videoPlayer.ontimeupdate = function() {
 		if (Math.abs(videoPlayer.currentTime - audioPlayer.currentTime) > 0.25) {
 			audioPlayer.currentTime = videoPlayer.currentTime;
