@@ -4,25 +4,63 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Video Player for v.redd.it</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+	<link rel="manifest" href="icons/site.webmanifest">
+	<link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#3bcb56">
+	<meta name="msapplication-TileColor" content="#3bcb56">
+	<meta name="theme-color" content="#3bcb56">
+	<link rel="shortcut icon" href="icons/favicon.ico">
+	<meta name="msapplication-config" content="icons/browserconfig.xml">
 	<link rel="stylesheet" type="text/css" href="videojs/video-js.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-	<div class="loader">Loading...</div>
-	<div class="video-container">
-		<video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" controls data-setup='{"controlBar": {
-        "volumePanel": {"inline": false}
-    }}'>
-		<p class="vjs-no-js">
-			To view this video please enable JavaScript, and consider upgrading to a web browser that
-			<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-		</p>
-		</video>
-		<audio id="audio-player">
-			<source id="audio-source" type="audio/mpeg">
-		</audio>
-	</div>
 	<script type="text/javascript" src="videojs/video.js"></script>
 	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<div class="topbar">
+		<div id="toggle-container">
+			<div class="toggle-inner-container">
+				<div class="toggle">
+					<p>Embedded</p>
+				</div>
+				<div class="toggle">
+					<p>Custom</p>
+				</div>
+			</div>
+			<div class="toggle-inner-container" id='toggle-container-2'>
+				<div class="toggle">
+					<p>Embedded</p>
+				</div>
+				<div class="toggle">
+					<p>Custom</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-content">
+		<div class="loader">Loading...</div>
+	</div>
+
+	<template id="template-custom">
+		<div class="video-container">
+			<video id="video-player" class="video-js vjs-default-skin vjs-big-play-centered" controls data-setup='{"controlBar": {"volumePanel": {"inline": false}}}'>
+			<p class="vjs-no-js">
+				To view this video please enable JavaScript, and consider upgrading to a web browser that
+				<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+			</p>
+			</video>
+			<audio id="audio-player">
+				<source id="audio-source">
+			</audio>
+		</div>
+	</template>
+
+	<template id="template-embedded">
+		<div class="video-container">
+			<div class="video-wrapper"></div>
+		</div>
+	</template>
 </body>
 </html>
